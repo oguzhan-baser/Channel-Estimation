@@ -29,8 +29,36 @@ This is the likelihood function and one can maximize this function by optimizing
 
 ![](./figs/eqn6.PNG)
 
-This equation gives the channel coefficients that we are looking for the MMSE equalization. The formulation of the MMSE equalization can be directly got from the [book](https://books.google.com/books/about/Digital_Communications.html?id=HroiQAAACAAJ#:~:text=Digital%20Communications%20is%20a%20classic,depth%20to%20cover%20two%20semesters.), which is
+This equation gives the channel coefficients that we are looking for the MMSE equalization. The formulation of the MMSE equalization can be directly got from the [book](https://books.google.com/books/about/Digital_Communications.html?id=HroiQAAACAAJ#:~:text=Digital%20Communications%20is%20a%20classic,depth%20to%20cover%20two%20semesters.), which is:
 
 ![](./figs/eqn7.PNG)
+
+## Implementation Details
+
+The script is  built to realize Monte-Carlo simulation for unknown channel with different number of pilot symbols at each data frame being ransmitted and the BER is measure via 10-tap causal MMSE equalizer. Monte-Carlo simulation is run for each predetermined pilot symbols. After all these imulations, another BER calculation with ideal channel is run. The latest boolean argument of the simulation function determines whether channel is 
+known or need to be estimated before equalization.
+
+Number of symbols per transmitted frame is selected to be 5000. Maximum number frames is selected to be 2000. The error limit is selected to be 200. In the Monte-Carlo simulation, the simulation is run for each predetermined SNR 
+values and it keeps running until the condition:
+(nTransmittedFrames(nEN)<max_nFrame)&&(nErroneusFrames(nEN)<fErrLim) 
+is destroyed. After generation of information frames, additional lines are added to generate pilot symbols with specified size. Random bits are generated to be our training symbols. Then resulting pilot symbols are sent
+through channel. After receiving the pilot signals, the channel is estimated by the formula derived above. After estimation of the channel, 10-tap causal MMSE equalizer matrix is produced. Causal equalizer is produced because channel is known to be causal. Only design difference between ordinary and causal equalizers is its unit 𝑒⃗ vector has only 1 at the first row unlike its being in the middle in the non-causal ones. Besides this difference, the size of the H matrix is decreased from (N1+N2+M1+M2-1) to (N2+M2-1) automatically without any design change. Finally, the equalization is done on the incoming signals and corresponding bit error rates and least square errors are calculated.
+
+## Simulation Results
+
+BER curves of the simulations with maximum log likelihood estimated channel with specified number of pilots and causal 10-tap MMSE equalizer shown in the figure above. The BER with the green line is the BER of the ideal channel with no estimation. 
+
+![](./figs/result1.PNG)
+
+As one can see from the figure above, the BER curve becomes closer to the one with the ideal channel as the number of pilots for estimation increases. It is quite an expected result because receiver have more information about the channel as the number of pilots increases. It is noted that the BER curve shifts more when number of pilots increases from 3 to 5 than it increases from 10 to 20. It is expected result because the pilots increases accuracy drastically until pilot number exceeds the number of channel coefficients. Thus, we see a significant increase between # pilots 3 and # pilots 5 than the successive ones. Additionally, the pilot vector longer than the channel vector may be used for fixing the effect of the noise. In other words, if there is no noisy situation, 5 pilots would be quite enough and fast to get desired accuracy while more pilots may enhance the performance in the noisy conditions. Finally, the effect of the number of pilots obvious in high SNR values simply because channel cannot be estimated correctly in noisy conditions even if there are lots of pilots for the estimation. 
+
+![](./figs/result2.PNG)
+
+Besides the BER curves, the least square error between the estimated and the original channel is shown in the plot above. It is for sure that pilot numbers affect the channel estimation performance in a positive way in contrast to noise power. 
+
+
+
+
+
 
 
