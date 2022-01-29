@@ -1,6 +1,4 @@
-% Bogazici University - Fall 2021 - EE477 - Intro. to Digital Communication - Final Project  Q2
 % Author: Oguzhan Baser
-% Lecturer: Mutlu Koca
 % Date: 12.01.2022
 % Copyright: MIT Lisence
 
