@@ -31,7 +31,7 @@ This is the likelihood function and one can maximize this function by optimizing
 
 This equation gives the channel coefficients that we are looking for the MMSE equalization. The formulation of the MMSE equalization can be directly got from the [book](https://books.google.com/books/about/Digital_Communications.html?id=HroiQAAACAAJ#:~:text=Digital%20Communications%20is%20a%20classic,depth%20to%20cover%20two%20semesters.), which is:
 
-<img src="./figs/eqn7.PNG" height="50">
+<img src="./figs/eqn7.PNG" height="60">
 
 ## Implementation Details
 
