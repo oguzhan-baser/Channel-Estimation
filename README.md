@@ -15,7 +15,7 @@ where y is incoming signal, h is channel vector, x is pilot symbol sequence and 
 
 size of X is = (channel length+pilot numbers-1) x channel length
 
-<img src="./figs/eqn3.PNG" height="100">
+<img src="./figs/eqn3.PNG" height="90">
 
 It is known fact that **η** vector is independent and identically distributed Gaussian random variable with μ = 0, σ². Since **𝑋**, **𝐻** vectors are deterministic, **𝑌** is also i.i.d. Gaussian random variable with mean vector **μ**= **𝐻**𝑥**𝑋**, σ².
 
@@ -23,7 +23,7 @@ It is known fact that **η** vector is independent and identically distributed G
 
 This is the likelihood function. Then, one can take log likelihood by taking ln of this function owing to the monotonicity of log function following equation is got.
 
-<img src="./figs/eqn5.PNG" height="60">
+<img src="./figs/eqn5.PNG" height="50">
 
 This is the likelihood function and one can maximize this function by optimizing over channel coefficients as the following
 
