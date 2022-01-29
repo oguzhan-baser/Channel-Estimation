@@ -11,7 +11,7 @@ One can model the received pilots by the receiver as follows:
 
 where y is incoming signal, h is channel vector, x is pilot symbol sequence and η is noise for that time instant. To utilize MATLAB’s fast matrix operations, one can represent the summation given above as a matrix multiplication between channel vector and sliding pilot symbols. One should note that sliding pilots should be in reverse order since channel vector is not flipped in the convolution as shown in the formula above. Say we send 3 known pilot symbols.
 
-<img src="./figs/eqn2.PNG" height="500">
+<img src="./figs/eqn2.PNG" height="300">
 
 size of X is = (channel length+pilot numbers-1) x channel length
 
