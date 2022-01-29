@@ -1,7 +1,7 @@
 # Channel Estimation
 Estimation of the channel coefficients is an important concept before equalizer design since the design depends on channel coefficients. As one can see from the figure below, the channel changes between each communication nodes and thus in each communication round, the estimation of the channel may be required for reliable communication. Representing the overall channel as a mathematical model in a finite length vector is quite fortunate for system design in digital communications because it makes almost any latter algorithm less complex, more accurate and more feasible in the run time. There are several channel estimation algorithms such as Least Mean Squares and Recursive Least Squares algorithms. For the sake of simplicity and conciseness, Maximum Likelihood Single Shot Estimation algorithm was chosen to be implemented in this project.
 
-<img src="./figs/scheme.PNG)
+![](./figs/scheme.PNG)
 
 ## Maximum Likelihood Single Shot Estimation
 During channel estimation , several pilot symbols known by both the receiver and the transmitter are sent through the channel through which the information will pass, and the unknown coefficients of channel are estimated by maximum log likelihood method
@@ -48,11 +48,11 @@ through channel. After receiving the pilot signals, the channel is estimated by 
 
 BER curves of the simulations with maximum log likelihood estimated channel with specified number of pilots and causal 10-tap MMSE equalizer shown in the figure above. The BER with the green line is the BER of the ideal channel with no estimation. 
 
-![](./figs/result1.PNG)
+<img src="./figs/result1.PNG" height="500">
 
 As one can see from the figure above, the BER curve becomes closer to the one with the ideal channel as the number of pilots for estimation increases. It is quite an expected result because receiver have more information about the channel as the number of pilots increases. It is noted that the BER curve shifts more when number of pilots increases from 3 to 5 than it increases from 10 to 20. It is expected result because the pilots increases accuracy drastically until pilot number exceeds the number of channel coefficients. Thus, we see a significant increase between # pilots 3 and # pilots 5 than the successive ones. Additionally, the pilot vector longer than the channel vector may be used for fixing the effect of the noise. In other words, if there is no noisy situation, 5 pilots would be quite enough and fast to get desired accuracy while more pilots may enhance the performance in the noisy conditions. Finally, the effect of the number of pilots obvious in high SNR values simply because channel cannot be estimated correctly in noisy conditions even if there are lots of pilots for the estimation. 
 
-![](./figs/result2.PNG)
+<img src="./figs/result2.PNG" height="500">
 
 Besides the BER curves, the least square error between the estimated and the original channel is shown in the plot above. It is for sure that pilot numbers affect the channel estimation performance in a positive way in contrast to noise power. 
 
