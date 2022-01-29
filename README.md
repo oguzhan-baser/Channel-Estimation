@@ -15,7 +15,7 @@ where y is incoming signal, h is channel vector, x is pilot symbol sequence and 
 
 size of X is = (channel length+pilot numbers-1) x channel length
 
-<img srx="./figs/eqn3.PNG" width="100">
+<img src="./figs/eqn3.PNG" width="100">
 
 It is known fact that **η** vector is independent and identically distributed Gaussian random variable with μ = 0, σ². Since **𝑋**, **𝐻** vectors are deterministic, **𝑌** is also i.i.d. Gaussian random variable with mean vector **μ**= **𝐻**𝑥**𝑋**, σ².
 
