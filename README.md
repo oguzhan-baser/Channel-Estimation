@@ -7,15 +7,15 @@ Estimation of the channel coefficients is an important concept before equalizer 
 During channel estimation , several pilot symbols known by both the receiver and the transmitter are sent through the channel through which the information will pass, and the unknown coefficients of channel are estimated by maximum log likelihood method
 One can model the received pilots by the receiver as follows:
 
-<img src="./figs/eqn1.PNG" height="100">
+<img src="./figs/eqn1.PNG" height="60">
 
 where y is incoming signal, h is channel vector, x is pilot symbol sequence and η is noise for that time instant. To utilize MATLAB’s fast matrix operations, one can represent the summation given above as a matrix multiplication between channel vector and sliding pilot symbols. One should note that sliding pilots should be in reverse order since channel vector is not flipped in the convolution as shown in the formula above. Say we send 3 known pilot symbols.
 
-<img src="./figs/eqn2.PNG" height="100">
+<img src="./figs/eqn2.PNG" height="500">
 
 size of X is = (channel length+pilot numbers-1) x channel length
 
-<img src="./figs/eqn3.PNG" height="90">
+<img src="./figs/eqn3.PNG" height="80">
 
 It is known fact that **η** vector is independent and identically distributed Gaussian random variable with μ = 0, σ². Since **𝑋**, **𝐻** vectors are deterministic, **𝑌** is also i.i.d. Gaussian random variable with mean vector **μ**= **𝐻**𝑥**𝑋**, σ².
 
